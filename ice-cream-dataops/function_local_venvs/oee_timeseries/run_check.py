@@ -25,8 +25,8 @@ except ImportError:
 def main() -> None:
     credentials = OAuthClientCredentials(
         token_url="https://login.microsoftonline.com/16e3985b-ebe8-4e24-9da4-933e21a9fc81/oauth2/v2.0/token",
-        client_id="5948d2b2-d467-4752-9319-fe49266d3686",
-        client_secret=os.environ["DATA_PIPELINE_OEE_CLIENT_SECRET"],
+        client_id="df309d91-e44a-4693-99e0-5745ae988d19",
+        client_secret=os.environ["ICAPI_EXTRACTORS_CLIENT_SECRET"],
         scopes=['https://westeurope-1.cognitedata.com/.default'],
     )
 

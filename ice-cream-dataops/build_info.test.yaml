@@ -105,7 +105,7 @@ modules:
   - name: ice_cream_api
     location:
       path: modules/bootcamp/ice_cream_api
-      hash: '70141753'
+      hash: e34f14a3
     build_variables:
     - key: icapi_ds_external_id
       value: ds_icapi
@@ -178,7 +178,7 @@ modules:
           externalId: create_asset_hierarchy
         source:
           path: /workspaces/ice-cream-dataops/ice-cream-dataops/modules/bootcamp/ice_cream_api/transformations/create_asset_hierarchy.schedule.yaml
-          hash: e80a72f6
+          hash: 45f62181
         kind: Schedule
       raw:
       - identifier:
@@ -244,6 +244,26 @@ modules:
             Cream Factory API/Source.yaml
           hash: ad7e9d3f
         kind: Source
+      workflows:
+      - identifier:
+          externalId: wf_icapi_data_pipeline
+        source:
+          path: /workspaces/ice-cream-dataops/ice-cream-dataops/modules/bootcamp/ice_cream_api/workflows/wf_icapi_data_pipeline.WorkFlow.yaml
+          hash: 63dce78b
+        kind: Workflow
+      - identifier:
+          externalId: icapi_trigger
+        source:
+          path: /workspaces/ice-cream-dataops/ice-cream-dataops/modules/bootcamp/ice_cream_api/workflows/wf_icapi_data_pipeline.WorkFlowTrigger.yaml
+          hash: 4bb02ead
+        kind: WorkflowTrigger
+      - identifier:
+          workflowExternalId: wf_icapi_data_pipeline
+          version: '1'
+        source:
+          path: /workspaces/ice-cream-dataops/ice-cream-dataops/modules/bootcamp/ice_cream_api/workflows/wf_icapi_data_pipeline.WorkflowVersion.yaml
+          hash: 64236ca1
+        kind: WorkflowVersion
       auth:
       - identifier:
           name: icapi_extractors
@@ -286,6 +306,6 @@ modules:
           path: /workspaces/ice-cream-dataops/ice-cream-dataops/modules/bootcamp/ice_cream_api/functions/schedules.Schedule.yaml
           hash: 056b9c64
         kind: Schedule
-    warning_count: 2
+    warning_count: 3
     status: Success
     iteration: 1
